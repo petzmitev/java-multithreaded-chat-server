@@ -34,14 +34,31 @@ Each connected client is handled in a separate thread, allowing multiple users t
 - Socket Communication
 - Object-Oriented Design
 
+## Architecture
+
+```text
+                +----------------+
+                |     Server     |
+                +----------------+
+                        |
+        +---------------+---------------+
+        |                               |
++---------------+               +---------------+
+| ClientHandler |               | ClientHandler |
+|   (Thread)    |               |   (Thread)    |
++---------------+               +---------------+
+        |                               |
+   +---------+                     +---------+
+   | Client  |                     | Client  |
+   +---------+                     +---------+
+```
+
 ## How it Works
 
 ```text
 Client 1
       │
 Client 2
-      │
-Client 3
       │
       ▼
  TCP Socket
@@ -66,14 +83,39 @@ git clone https://github.com/petzmitev/java-multithreaded-chat-server.git
 
 Open the project in IntelliJ IDEA.
 
-Compile and run:
+Run the server:
 
-- `Server/Main.java`
-- `Client/ClientMain.java`
+```text
+Run -> Server/Main.java
+```
+
+Run the client:
+
+```text
+Run -> Client/ClientMain.java
+```
+
+Start multiple client instances to communicate with each other.
 
 ## Demo
 
-Screenshots demonstrating the application will be added here.
+### Server
+
+The server starts on port **6000** and creates a dedicated thread for every connected client.
+
+![Server](screenshots/server-terminal.png)
+
+### Client 1
+
+The first client joins the chat and sends messages to all connected users.
+
+![Client 1](screenshots/client-1.png)
+
+### Client 2
+
+The second client receives previous chat history and continues the conversation in real time.
+
+![Client 2](screenshots/client-2.png)
 
 ## Future Improvements
 
