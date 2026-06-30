@@ -12,6 +12,7 @@ public class Server {
 
 
     public void startServer() {
+        System.out.println("Server started on port 6000");
         try {
             while (!serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
