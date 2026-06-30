@@ -107,15 +107,21 @@ The server starts on port **6000** and creates a dedicated thread for every conn
 
 ### Client 1
 
-The first client joins the chat and communicates with other connected clients.
+The first client joins the chat and exchanges messages with other connected clients.
 
 ![Client 1](screenshots/client-1.png)
 
 ### Client 2
 
-The second client receives the previous chat history and continues the conversation in real time.
+The second client joins the chat and communicates in real time with the first client.
 
 ![Client 2](screenshots/client-2.png)
+
+### Client 3 - Chat History
+
+The third client joins after the conversation has already started and automatically receives the previous chat history from the server.
+
+![Client 3](screenshots/client-3-history.png)
 
 ## Future Improvements
 
