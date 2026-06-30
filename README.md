@@ -6,7 +6,7 @@ A multi-threaded Java TCP chat application that allows multiple clients to conne
 
 This project demonstrates the implementation of a multi-threaded client-server architecture using Java TCP sockets.
 
-Each connected client is handled in a separate thread, allowing multiple users to communicate simultaneously. Messages are broadcast to all connected clients, while newly connected users automatically receive the previous chat history.
+Each connected client is handled in a separate thread, allowing multiple users to communicate simultaneously. Messages are broadcast to all connected clients, while newly connected clients automatically receive the previous chat history stored on the server.
 
 ## Features
 
@@ -56,21 +56,18 @@ Each connected client is handled in a separate thread, allowing multiple users t
 ## How it Works
 
 ```text
-Client 1
-      │
-Client 2
-      │
-      ▼
- TCP Socket
-      │
-      ▼
-Server
-      │
-      ▼
-ClientHandler (Thread)
-      │
-      ▼
-Broadcast Message
+Client 1      Client 2      Client N
+     \            |            /
+      \           |           /
+       +----------+----------+
+                  |
+             TCP Socket
+                  |
+               Server
+                  |
+         ClientHandler (Thread)
+                  |
+        Broadcast to all clients
 ```
 
 ## Installation
@@ -128,7 +125,7 @@ The third client joins after the conversation has already started and automatica
 - Private messaging
 - User authentication
 - Graphical User Interface (GUI)
-- Message persistence using a database
+- Database persistence
 - End-to-end encryption
 
 ## Author
